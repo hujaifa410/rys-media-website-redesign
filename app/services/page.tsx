@@ -1,0 +1,4 @@
+import type { Metadata } from 'next'
+import { PageHero, ServiceRows, CTASection, SectionHeading } from '@/components/editorial'
+export const metadata:Metadata={title:'Business Advisory Services',description:'Specialist business advisory services for profitability, business value, asset protection and exit planning.'}
+export default function Services(){return <><PageHero eyebrow="OUR EXPERTISE" title="Specialist Advice. Stronger Businesses." text="Our services help established business owners make informed decisions, improve performance, safeguard value and plan confidently for the future."/><section className="section"><div className="shell"><SectionHeading eyebrow="FIVE CONNECTED DISCIPLINES" title="Advice Designed Around the Whole Business." text="Every engagement begins with understanding. From there, our expertise comes together around the issues and opportunities that matter most to you."/><ServiceRows/></div></section><CTASection/></>}

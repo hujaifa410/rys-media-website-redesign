@@ -1,0 +1,7 @@
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import { CTASection, PageHero, ServiceRows } from '@/components/editorial'
+import { services } from '@/lib/site-data'
+export function generateStaticParams(){return services.map(s=>({slug:s.slug}))}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const s=services.find(x=>x.slug===slug);return {title:s?.title||'Service',description:s?.short}}
+export default async function ServicePage({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const service=services.find(x=>x.slug===slug);if(!service)notFound();return <><PageHero eyebrow="ADVISORY EXPERTISE" title={service.title} text={service.short}/><section className="section white"><div className="shell content-grid"><div><p className="eyebrow">OVERVIEW</p><h2>From understanding to informed action.</h2></div><div className="prose"><p className="lead">{service.intro}</p><p>Our advice is shaped around your circumstances rather than a fixed formula. We consider the commercial realities of the business alongside the personal objectives of its owners, creating a sound basis for practical decisions and a productive long-term advisory relationship.</p><ul className="detail-focus">{service.focus.map(x=><li key={x}>{x}</li>)}</ul></div></div></section><section className="section"><div className="shell"><p className="eyebrow">EXPLORE RELATED SERVICES</p><ServiceRows limit={3}/></div></section><CTASection/></>}

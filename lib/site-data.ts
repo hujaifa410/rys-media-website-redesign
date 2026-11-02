@@ -1,0 +1,14 @@
+export const contact = { phone: '01772 657994', phoneHref: 'tel:+441772657994', email: 'info@rys-media.com', address: ['41 New Hall Lane', 'Preston', 'PR1 5NX'] }
+
+export const services = [
+  { slug: 'situation-analysis', title: 'Situation Analysis', short: 'A clear-eyed understanding of where your business stands, where you want to go and what may stand in the way.', intro: 'We take time to understand the present position of your business and the aspirations you hold for it.', focus: ['Where the business is now', 'Where its owners want to be', 'Business and personal aspirations', 'What owners enjoy — and what frustrates them', 'Challenges to achieving your ambitions'] },
+  { slug: 'profit-capital-improvement', title: 'Profit & Capital Value Improvement', short: 'Practical commercial thinking that supports stronger profitability and sustainable enterprise value.', intro: 'A successful business should generate profit today while building sustainable capital value for tomorrow.', focus: ['Improving profitability', 'Identifying commercial opportunities', 'Evaluating business performance', 'Supporting long-term enterprise value', 'Retirement and succession preparation', 'Stronger financial and strategic decisions'] },
+  { slug: 'business-coaching', title: 'Business Coaching & Training', short: 'Helping owners step back, lead with clarity and build an organisation equipped to perform.', intro: 'We help business owners work on their business, not simply in their business.', focus: ['Effective leadership', 'Management style and high performance', 'Building effective organisations', 'A joint enterprise culture', 'Continuous improvement and innovation', 'Entering new markets'] },
+  { slug: 'asset-protection', title: 'Protecting Your Assets', short: 'Identifying risks and helping protect the tangible and intangible value you have worked to create.', intro: 'Building value matters. Protecting that value — across assets, structures and commercial relationships — matters just as much.', focus: ['Appropriate group structures', 'Intellectual property', 'Commercial risk identification', 'Customer profile understanding', 'Due diligence', 'Access to appropriate legal advice'] },
+  { slug: 'exit-strategy', title: 'Developing an Exit Strategy', short: 'A structured long-term roadmap designed to preserve options and support a well-considered transition.', intro: 'Effective exit planning begins with a clear vision of what you want the future to look like.', focus: ['Future objectives', 'Business valuation considerations', 'Succession planning', 'Retirement preparation', 'Timing and readiness', 'A structured exit roadmap'] },
+]
+
+export const nav = [
+  { href: '/', label: 'Home' }, { href: '/about', label: 'About' }, { href: '/services', label: 'Services' },
+  { href: '/how-we-can-help', label: 'How We Can Help' }, { href: '/clients', label: 'Clients' }, { href: '/contact', label: 'Contact' },
+]
