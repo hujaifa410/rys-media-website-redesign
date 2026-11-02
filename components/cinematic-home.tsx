@@ -12,10 +12,10 @@ import { CTASection, SectionHeading } from '@/components/editorial'
 
 const serviceImages = ['/images/service-situation.png','/images/service-value.png','/images/service-coaching.png','/images/service-protection.png','/images/service-exit.png']
 const process = [
-  ['01','Understand','We take time to understand your business, ambitions and challenges.'],
-  ['02','Analyse','We identify opportunities, risks and the issues influencing performance.'],
-  ['03','Strategise','We develop practical recommendations aligned with your objectives.'],
-  ['04','Grow & Protect','We support progress towards enduring value and long-term security.'],
+  ['01','Understand','We take time to understand your business, ambitions and commercial challenges.'],
+  ['02','Analyse','We assess your current position and identify risks, opportunities and potential improvements.'],
+  ['03','Strategise','We develop clear, practical strategies aligned with your personal and business objectives.'],
+  ['04','Grow & Protect','We help you strengthen profitability, build lasting value and safeguard your business.'],
 ]
 
 export function CinematicHome(){
@@ -37,8 +37,15 @@ export function CinematicHome(){
       gsap.utils.toArray<HTMLElement>('.reveal-section').forEach(section=>{
         gsap.from(section.querySelectorAll('.reveal-item'),{opacity:0,y:30,duration:.75,stagger:.1,ease:'power3.out',scrollTrigger:{trigger:section,start:'top 82%',once:true}})
       })
-      gsap.from('.process-track-fill',{scaleX:0,ease:'none',scrollTrigger:{trigger:'.process-sequence',start:'top 72%',end:'bottom 80%',scrub:.6}})
-      gsap.from('.process-stage',{opacity:.35,y:20,stagger:.16,duration:.55,scrollTrigger:{trigger:'.process-sequence',start:'top 72%',once:true}})
+      const processTimeline = gsap.timeline({
+        scrollTrigger:{trigger:'.process-section',start:'top 78%',once:true},
+        defaults:{ease:'power3.out'},
+      })
+      processTimeline
+        .from('.process-section .section-heading',{y:18,duration:.5})
+        .from('.process-track-fill',{scaleX:0,duration:.9,ease:'power2.inOut'},'-=.15')
+        .from('.process-marker',{scale:.72,duration:.42,stagger:.12},'-=.42')
+        .from('.process-stage-content',{y:18,opacity:.68,duration:.5,stagger:.1},'-=.4')
       if(matchMedia('(min-width: 1001px)').matches){
         gsap.timeline({scrollTrigger:{trigger:'.scroll-story',start:'top top',end:'+=120%',pin:true,scrub:.7}})
           .from('.story-line:nth-child(1)',{opacity:.15,x:-30})
@@ -75,11 +82,11 @@ export function CinematicHome(){
 
     <section className="scroll-story"><div className="story-image"><Image src="/images/office-architecture.png" alt="Contemporary commercial interior" fill sizes="100vw"/></div><div className="story-wash"/><div className="story-geometry" aria-hidden="true"><i/><i/><i/></div><div className="shell story-content"><p className="eyebrow light">THE ART OF BUSINESS GROWTH</p><h2><span className="story-line">Build Value.</span><span className="story-line serif">Protect What Matters.</span><span className="story-line">Plan What Comes Next.</span></h2><p>Strong businesses are built with intention. We connect the decisions of today with the freedom and opportunity of tomorrow.</p></div></section>
 
-    <section className="section white reveal-section"><div className="shell"><SectionHeading eyebrow="HOW WE WORK" title="A Clear Path From Ambition to Action."/>
-      <div className="process-sequence"><div className="process-track"><i className="process-track-fill"/></div>{process.map((item,i)=><div className="process-stage reveal-item" key={item[0]}><button type="button" aria-label={`Stage ${i+1}: ${item[1]}`}><span>{item[0]}</span></button><h3>{item[1]}</h3><p>{item[2]}</p></div>)}</div>
+    <section id="how-we-work" className="section white process-section"><div className="shell process-shell"><SectionHeading eyebrow="HOW WE WORK" title="A Clear Path From Ambition to Action."/>
+      <ol className="process-sequence"><li className="process-track" aria-hidden="true"><i className="process-track-fill"/></li>{process.map((item)=><li className="process-stage" key={item[0]}><div className="process-marker" aria-hidden="true"><span>{item[0]}</span></div><div className="process-stage-content"><h3>{item[1]}</h3><p>{item[2]}</p></div></li>)}</ol>
     </div></section>
 
-    <section className="section white philosophy reveal-section"><div className="shell philosophy-editorial"><div className="reveal-item"><p className="eyebrow">OUR PHILOSOPHY</p><p>Close working relationships.<br/>Honest guidance.<br/>Practical business thinking.</p></div><blockquote className="reveal-item">“Advice built around your ambitions — <em>and a relationship built to last.</em>”</blockquote></div></section>
+    <section id="our-philosophy" className="section white philosophy"><div className="shell philosophy-editorial"><blockquote>Advice built around your <em>ambitions</em> — and a relationship <em>built to last.</em></blockquote><div className="philosophy-copy"><p className="eyebrow">OUR PHILOSOPHY</p><i aria-hidden="true"/><p className="philosophy-lead">Close working relationships. Honest guidance. Practical business thinking.</p><p>At RYS MEDIA, we believe meaningful advisory relationships are built on understanding, trust and long-term commitment.</p></div></div></section>
     <CTASection/>
   </div>
 }
