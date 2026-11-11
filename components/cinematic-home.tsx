@@ -11,7 +11,7 @@ import { ArrowLink } from '@/components/site-shell'
 import { CTASection, SectionHeading } from '@/components/editorial'
 
 const serviceImages = ['/images/service-situation.png','/images/service-value.png','/images/service-coaching.png','/images/service-protection.png','/images/service-exit.png']
-const process = [
+const processSteps = [
   ['01','Understand','We take time to understand your business, ambitions and commercial challenges.'],
   ['02','Analyse','We assess your current position and identify risks, opportunities and potential improvements.'],
   ['03','Strategise','We develop clear, practical strategies aligned with your personal and business objectives.'],
@@ -83,7 +83,7 @@ export function CinematicHome(){
     <section className="scroll-story"><div className="story-image"><Image src="/images/office-architecture.png" alt="Contemporary commercial interior" fill sizes="100vw"/></div><div className="story-wash"/><div className="story-geometry" aria-hidden="true"><i/><i/><i/></div><div className="shell story-content"><p className="eyebrow light">THE ART OF BUSINESS GROWTH</p><h2><span className="story-line">Build Value.</span><span className="story-line serif">Protect What Matters.</span><span className="story-line">Plan What Comes Next.</span></h2><p>Strong businesses are built with intention. We connect the decisions of today with the freedom and opportunity of tomorrow.</p></div></section>
 
     <section id="how-we-work" className="section white process-section"><div className="shell process-shell"><SectionHeading eyebrow="HOW WE WORK" title="A Clear Path From Ambition to Action."/>
-      <ol className="process-sequence"><li className="process-track" aria-hidden="true"><i className="process-track-fill"/></li>{process.map((item)=><li className="process-stage" key={item[0]}><div className="process-marker" aria-hidden="true"><span>{item[0]}</span></div><div className="process-stage-content"><h3>{item[1]}</h3><p>{item[2]}</p></div></li>)}</ol>
+      <ol className="process-sequence"><li className="process-track" aria-hidden="true"><i className="process-track-fill"/></li>{processSteps.map((item)=><li className="process-stage" key={item[0]}><div className="process-marker" aria-hidden="true"><span>{item[0]}</span></div><div className="process-stage-content"><h3>{item[1]}</h3><p>{item[2]}</p></div></li>)}</ol>
     </div></section>
 
     <section id="our-philosophy" className="section white philosophy"><div className="shell philosophy-editorial"><blockquote>Advice built around your <em>ambitions</em> — and a relationship <em>built to last.</em></blockquote><div className="philosophy-copy"><p className="eyebrow">OUR PHILOSOPHY</p><i aria-hidden="true"/><p className="philosophy-lead">Close working relationships. Honest guidance. Practical business thinking.</p><p>At RYS MEDIA, we believe meaningful advisory relationships are built on understanding, trust and long-term commitment.</p></div></div></section>
